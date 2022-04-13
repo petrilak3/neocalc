@@ -1,0 +1,208 @@
+.row {
+    background: #1565c0;
+}
+
+.neologo {
+    width: 50%;
+    height: 50%;
+    cursor: pointer;
+}
+
+.userTabsRedCode {
+    background-color:#0d47a1;
+    display: none !important;
+}
+
+@media only screen and (max-width: 700px) {
+    .neologo {
+        margin-top:5%;
+        width: 110%;
+        height: 100%;
+    }
+    .userTabsRedCode {
+        background-color:#0d47a1;
+        display: block !important;
+    }
+}
+
+#all {
+    margin-bottom: 0 !important;
+}
+
+.user-view {
+    margin-bottom:0 !important;
+}
+
+.personBlock {
+    display: block !important;
+}
+
+.email {
+    padding-bottom:0.4em !important;
+}
+
+.noAccountBlock {
+    font-size: 13px;
+}
+
+.userTabs {
+    background-color:#0d47a1;
+}
+
+.upperDivider {
+    margin:0 !important;
+}
+
+.menuBlock {
+    margin-top: 1em;
+    width: min-content;
+}
+
+.menuIcon {
+    margin-top: 0.15em;
+}
+
+.printBlock {
+    margin-top: 1.5em;
+}
+
+h3 {
+    color:white;
+}
+
+.notesSearch {
+    margin-top:2em;
+}
+
+.deleteNoteButton {
+    float: right;
+}
+
+.warningParagraph {
+    color: red;
+}
+
+#nameUpdated {
+    color: red;
+}
+
+#passwordUpdated {
+    color:red;
+}
+.menuBlockResus {
+    margin-top: 2.5em;
+    margin-left: -55px;
+}
+.menuBlockResus a img {
+    width:160px;
+}
+
+.notesBTN {
+    margin-bottom: 0.25em;
+    margin-right:0.25em;
+    font-size: 14px;
+    height: auto !important;
+    padding: 0.55em !important;
+    line-height: normal;
+    width: 28px !important;
+}
+
+.notesBTNLast {
+    margin-bottom: 0.25em;
+    font-size: 14px;
+    height: auto !important;
+    padding: 0.55em !important;
+    line-height: normal;
+    width: 28px !important;
+}
+
+.boxNotesIn {
+    padding:0.5em;
+    border: 0.35px black solid;
+}
+
+.boxNotesOut {
+    padding:0.5em;
+    border: 0.35px black solid;
+    margin-bottom:0.25em;   
+}
+
+#modal3 {
+    max-height: 80% !important;
+}
+
+@media only screen and (max-width: 1700px) {
+    .menuBlockResus a img {
+        width:145px;
+    }
+    .menuBlockResus {
+        margin-left: -47px;
+    }
+    .menuIcon {
+        margin-top: 0.05em;
+    }
+} 
+
+@media only screen and (max-width: 1400px) {
+    .menuBlockResus a img {
+        width:125px;
+    }
+    .menuBlockResus {
+        margin-left: -50px;
+        margin-top: 1.5em;
+    }
+    .menuIcon {
+        margin-top: -0.15em;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .menuBlockResus{display: none !important;}
+    .menuIcon {
+        margin-top: -0.25em;
+    }
+}
+
+.externalImage {
+    cursor: pointer;
+    width: 70%;
+    margin-left:15%;
+    float:left;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

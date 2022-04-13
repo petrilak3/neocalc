@@ -1,0 +1,46 @@
+.z-depth-1 {
+    font-size: 1.4vw;
+}
+
+.preloader-wrapper {
+    margin-bottom: 3% !important;
+    display: block !important;
+}
+
+.collapsible-body {
+    background-color: white;
+}
+
+.resultParagraph {
+    font-weight: bold;
+    padding:5px;
+    border: 1px green solid;
+}
+
+h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 14px;
+}
+
+.panels {
+    margin-top:-10em;
+    position:fixed;
+    width:70%;
+}
+
+.moreInfoButton {
+    float:right;
+}
+
+@media only screen and (max-width: 800px) {
+    .panelButtons {
+        float:left;
+    }
+}
+

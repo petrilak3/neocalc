@@ -1,0 +1,56 @@
+<div *ngIf="isLoading" class="preloader-wrapper big active container">
+  <div class="spinner-layer spinner-blue-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+      <div class="circle"></div>
+    </div><div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+  </div> 
+</div>
+
+<h4 *ngIf="!isLoading">Lieky</h4>
+
+
+<div *ngIf="!isLoading" class="input-field container searchBox">
+  <input #box id="search" type="search" (keyup)="searchValue(box.value)" placeholder="               Zadajte hľadaný výraz...">
+  <label for="search"><i class="material-icons">search</i></label>
+</div>
+
+<div class="panels">
+  <app-item-notes *ngIf="notesForItem != null" [item]="notesForItem" [group]="group" (newItemEvent)="closeNotes($event)"></app-item-notes>
+</div>
+ 
+<ul class="collapsible popout" data-collapsible="accordion" materialize="collapsible" watch>
+    <li *ngFor="let item of allItems">
+      <div class="collapsible-header" *ngIf="item.name.toLowerCase().includes(search)">  
+        {{item.name}}
+      </div> 
+      <div class="collapsible-body"> 
+        <div class="buttonBlock">
+          <button class="btn buttonPreddef" (click)="autofill(item)">preddefinované hodnoty</button>
+          <button class="btn buttonNotes blue lighten-3 black-text" (click)="openItemNotes(item)">Poznámky</button>
+          <a class="btn buttonADC" *ngIf="item.link2" href={{item.link2}} target="_blank"><span>ADC.SK</span></a>
+          <a class="btn buttonInfo" *ngIf="item.link" href={{item.link}} target="_blank"><span>viac informácii</span></a>
+
+          <a class="btn grey buttonADC" *ngIf="!item.link2" target="_blank"><span>ADC.SK</span></a>
+          <a class="btn grey buttonInfo" *ngIf="!item.link" target="_blank"><span>viac informácii</span></a>
+        </div>
+        <div>
+            <input-field *ngFor="let field of item.parameters">
+              <label>{{field}}</label>
+              <input #box (keyup)="evaluation(item,field.concat(item.id),boxResult,box)" placeholder="Zadajte hodnotu..." type="number" id={{field.concat(item.id)}}>
+            </input-field>
+            <p #boxResult class="resultParagraph">Zadajte údaje</p> 
+        </div>
+
+        <button *ngIf="patients.length == 0" class="btn" (click)="showPatients()">Zobraziť pacientov</button>
+
+        <div *ngFor="let opt of patients">
+          <button #btnBOX class="btn btnAddToSaved green lighten-2" (click)="saveData(item,opt,btnBOX)">Uložiť výpočet - {{opt.name}}</button>
+        </div> 
+ 
+      </div> 
+    </li>
+  </ul>  

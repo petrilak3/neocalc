@@ -1,0 +1,23 @@
+<div class="row">
+
+    <h4>Odporúčania</h4>
+
+    <div class="input-field container">
+        <input #box id="search" type="search" (keyup)="searchValue(box.value)" placeholder="               Zadajte hľadaný výraz...">
+        <label for="search"><i class="material-icons">search</i></label>
+    </div>
+
+    <div class="col s10 offset-s1">
+        <a *ngFor="let item of allItems" href={{item.link}} target="_blank">
+            <div *ngIf="item.name.toLowerCase().includes(search)" class="card-panel blue darken-4 white-text insideText">
+                <span>{{item.name}}</span>
+                <i class="material-icons right">search</i>
+            </div>
+        </a>
+    </div>
+
+    <div class="col s10 offset-s1" *ngIf="sources != null">
+        <p class="boldText">Zdroje:</p>
+        <a *ngFor="let item of sources" href={{item}} target="_blank">{{item}}</a>
+    </div>
+</div> 

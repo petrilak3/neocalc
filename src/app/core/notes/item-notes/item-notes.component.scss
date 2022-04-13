@@ -1,0 +1,45 @@
+ .mainPanel {
+    margin:0 !important;
+    overflow: scroll;
+    max-height: 400px;
+    box-shadow: 0px 0px 0px 600px;
+ }
+
+ .btnClose {
+     float:right;
+ }
+
+ .btnTextChange {
+    margin-bottom: 0.25em;
+    margin-right:0.25em;
+    font-size: 14px;
+    height: auto !important;
+    padding: 0.55em !important;
+    line-height: normal;
+    width: 28px !important;
+ }
+
+ .btnTextChangeLast {
+    margin-bottom: 0.25em;
+    font-size: 14px;
+    height: auto !important;
+    padding: 0.55em !important;
+    line-height: normal;
+    width: 28px !important;
+ }
+
+ .noteText {
+    padding:0.5em;
+    border: 0.35px black solid;
+ }
+
+ .noteTextAdd {
+    padding:0.5em;
+    border: 0.35px black solid;
+    margin-bottom:0.25em;
+ }
+
+
+ .logInfoBox {
+    margin-bottom:5em;
+ }

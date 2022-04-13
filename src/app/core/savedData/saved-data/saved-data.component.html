@@ -1,0 +1,39 @@
+<div *ngIf="!patientZoom" class="row">
+    <div class="col s10 offset-s1">
+        <h4>Uložené výpočty</h4>
+        <h5>Vytvoriť nového pacienta</h5>
+    </div>
+    
+    <div class="col s8 offset-s2 createPatientBox">
+        <label>Názov pacienta [max. 20 znakov]</label>
+        <input #boxPatient type="text" placeholder="Pacient č.1" (keyup)="validateLength(boxPatient)">
+        <button class="btn" (click)="createPatient(boxPatient)">Vytvoriť pacienta</button>
+    </div>
+
+    <div class="col s10 offset-s1">
+        <h5>Pacienti</h5>
+    </div>
+
+    <div class="col s8 offset-s2 patientsBox">
+        <table>
+            <thead>
+              <tr>
+                  <th>Názov pacienta</th>
+                  <th>Počet uložených výpočtov</th>
+                  <th></th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr *ngFor="let patient of allItemsDB" class="patientCSS">
+                <td>{{patient.name}}</td>
+                <td>{{patient.saved.length}}</td>
+                <td><button class="btn green" (click)="openPatient(patient)">otvoriť</button></td>
+                <td><button class="btn red" (click)="deletePatient(patient)">odstrániť</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div> 
+</div> 
+
+<app-patient-details *ngIf="patientZoom" [patient]="selectedPatient" (newItemEvent)="close($event)"></app-patient-details>

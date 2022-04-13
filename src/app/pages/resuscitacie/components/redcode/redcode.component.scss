@@ -1,0 +1,63 @@
+.tableRowHighlight:hover {
+    background: white !important;
+}
+
+.tableRowHighlight td {
+    font-weight: bold;
+    font-style: italic;
+}
+
+h4 {
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+    padding-left: 2em;
+}
+
+h5 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+    padding-left: 3.5em;
+} 
+
+.row {
+    margin-bottom: 0;
+}
+
+.kanyleTable {
+    width:80%;
+    margin-left:10%;
+}
+
+.kanyleTableLabel {
+    margin-top: 1em !important;
+}
+
+.kanyleTableInput {
+    margin-left:35% !important;
+    width:30% !important;
+    margin-right:35% !important;
+}
+
+.kanyleTableParagraph {
+    font-weight: bold;
+    font-size: 18px;
+    font-weight: bold;
+    padding:5px;
+    border: 1px green solid;
+}
+
+.sourcesBox {
+    padding-left: 3em;
+    padding-bottom: 2em;
+}
+.sourcesText {
+    font-weight: bold;
+    width:70%;
+}
+
+@media only screen and (max-width: 800px) {
+    h4 {padding-left:1em;}
+}

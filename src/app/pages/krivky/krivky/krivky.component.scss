@@ -1,0 +1,68 @@
+.boys {
+    background: green;
+    margin-left: 3em;
+    margin-bottom: 2em;
+}
+
+.girls {
+    background: green;
+    margin-bottom: 2em;
+}
+
+.turnRed {
+    background: red;
+}
+
+.preloader-wrapper {
+    margin-bottom: 3% !important;
+    display: block !important;
+}
+
+h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+    padding-left: 2em;
+    text-transform: uppercase;
+}
+
+.resultParagraph {
+    font-size: 18px; 
+    text-align: center;
+    font-weight: bold;
+    padding:5px;
+    border: 1px green solid;
+}
+
+.sourcesBox {
+    padding-left: 2em;
+    padding-bottom: 2em;
+    word-break: break-all;
+}
+
+.boldText {
+    font-weight: bold;
+}
+
+.about {
+    text-transform: uppercase;
+    float:right;
+    font-weight: bold;
+    margin-right:2em;
+    margin-top:1em;
+}
+
+@media only screen and (max-width: 800px) {
+    h4 {
+        padding-left:0.5em !important;
+    }
+    .girls {
+        width: 80%;
+        margin-bottom: 1em !important;
+    }
+    .boys {
+        margin-left: 0 !important;
+        width: 80%;
+        margin-bottom: 1em !important;
+    }
+}

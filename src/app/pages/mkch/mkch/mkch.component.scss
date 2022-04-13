@@ -1,0 +1,55 @@
+.preloader-wrapper {
+    margin-bottom: 3% !important;
+    display: block !important;
+}
+
+.P {
+    background: green; 
+    margin-bottom: 2em;
+}
+
+.Q {
+    background: green;
+    margin-left: 3em;
+    margin-bottom: 2em;
+}
+
+.turnRed {
+    background: red;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+h4 {
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 2em;
+}
+
+.boldText {
+    font-weight: bold;
+}
+.italicText {
+    font-style: italic;
+}
+
+.boxSources {
+    padding-left: 3em;
+    padding-bottom: 2em;
+}
+
+.sourcesText {
+    font-weight: bold;
+    width:70%;
+}
+
+@media only screen and (max-width: 800px) {
+    h4 {padding-left: 0.75em;}
+    .P {margin-bottom: 1em;width: 70%;}
+    .Q {width: 70%;margin-left: 0;}
+ }

@@ -1,0 +1,109 @@
+<h4>Energetické tabuľky</h4> 
+
+<ul class="collapsible popout" watch> 
+  <li>
+    <div class="collapsible-header">
+      Energetický príjem novorodenca – p.o. príjem + Ca/P metabolizmus
+    </div>
+    <div class="collapsible-body">
+      <table class="highlight centered">
+        <thead>
+          <tr> 
+              <th>Hodnoty  (na 100 ml mlieka)</th>
+              <th>Typ mlieka</th>
+              <th>Energia [kcal]</th>
+              <th>Cukry [g]</th>
+              <th>Tuky [g]</th>
+              <th>Bielkoviny [g]</th>
+              <th>Vápnik [mg]</th>
+              <th>Fosfor [mg]</th>
+              <th>Železo [mg]</th>
+          </tr>
+        </thead>
+    
+        <tbody>
+          <tr *ngFor="let item of table">
+              <td><label class="left">{{item.val}}</label><input type="number" #box (keyup)="onInput(box.value,item)" placeholder="Zadajte hodnotu..."></td>
+              <td>{{item.type}}</td>
+              <td>{{item.energy}}</td>
+              <td>{{item.carbo}}</td>
+              <td>{{item.fat}}</td>
+              <td>{{item.protein}}</td>
+              <td>{{item.ca}}</td>
+              <td>{{item.ph}}</td>
+              <td>{{item.fe}}</td>
+          </tr>
+          <tr>
+            <td class="boldText">Spolu:</td> 
+            <td></td>
+            <td class="boldText">{{energy.toFixed(2)}}</td>
+            <td class="boldText">{{carbo.toFixed(2)}}</td>
+            <td class="boldText">{{fat.toFixed(2)}}</td>
+            <td class="boldText">{{protein.toFixed(2)}}</td>
+            <td class="boldText">{{ca.toFixed(2)}}</td>
+            <td class="boldText">{{ph.toFixed(2)}}</td>
+            <td class="boldText">{{fe.toFixed(2)}}</td>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+          <th>Energia [kcal]</th>
+          <th>Cukry [g]</th>
+          <th>Tuky [g]</th>
+          <th>Bielkoviny [g]</th>
+          <th>Vápnik [mg]</th>
+          <th>Fosfor [mg]</th>
+          <th>Železo [mg]</th>
+      </tr>
+        </tbody>
+      </table>
+
+      <br><br>
+    
+      <table class="highlight resultTable">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Vápnik (denná potreba 160-200mg/kg/deň)</th>
+            <th>Fosfor (denná potreba 60-90mg/kg/deň)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>p.o. substitúcia</td>
+            <td>•	Ca sirup: 1ml obsahuje 24mg Ca</td>
+            <td>•	Fosfátový roztok: 1ml obsahuje 37,5mg P</td>
+          </tr>
+          <tr>
+            <td>i.v. substitúcia</td>
+            <td>•	10% Ca gluconicum: 1ml obsahuje 9mg Ca</td>
+            <td>•	Glukózo-1-fosfát: 1ml obsahuje 31mg P</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>•	Natrium-glukózo-fosfát: 1ml obsahuje 31mg P</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>•	13,6% Natrium-glukózo-fosforicum: 1ml obsahuje 31mg P</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </li>
+</ul>
+
+<div class="sources">
+  <p class="sourcesHeader">Zdroje:</p>
+  <a href="https://www.neocate.sk/docs/Neocate-Infant-zlozenie.pdf" target="_blank">https://www.neocate.sk/docs/Neocate-Infant-zlozenie.pdf</a><br>
+  <a href="https://kategorizacia.mzsr.sk/Dietetika/Download/RequestAttachment/4111" target="_blank">https://kategorizacia.mzsr.sk/Dietetika/Download/RequestAttachment/4111 </a><br>
+  <a href="https://www.nutriklub.sk/media/907/original/Nutrilon_Vyzivove_tabulky_02-2019_01_HA%20PROSYNEO%201.png" target="_blank">https://www.nutriklub.sk/media/907/original/Nutrilon_Vyzivove_tabulky_02-2019_01_HA%20PROSYNEO%201.png</a><br>
+  <a href="https://www.nutriklub.sk/media/822/original/Nutrilon_Vyzivove_tabulky_01_N1.png" target="_blank">https://www.nutriklub.sk/media/822/original/Nutrilon_Vyzivove_tabulky_01_N1.png</a><br>
+  <a href="http://www.internetovalekaren.eu/nestle-beba-pre-discharge-mliecna-vyziva-400g/" target="_blank">http://www.internetovalekaren.eu/nestle-beba-pre-discharge-mliecna-vyziva-400g/</a><br>
+  <a href="https://www.nestlebaby.cz/sk/product/beba-optipro-ha-1-800-g/" target="_blank">https://www.nestlebaby.cz/sk/product/beba-optipro-ha-1-800-g/ </a><br>
+  <a href="https://www.nutriklub.cz/media/1439/original/V%C3%BD%C5%BEivov%C3%A9%20%C3%BAdaje.png" target="_blank">https://www.nutriklub.cz/media/1439/original/V%C3%BD%C5%BEivov%C3%A9%20%C3%BAdaje.png</a><br>
+  <a href="https://www.nestlebaby.cz/sk/product/prebeba-2-fm-85-200g/" target="_blank">https://www.nestlebaby.cz/sk/product/prebeba-2-fm-85-200g/ </a>
+</div>
+

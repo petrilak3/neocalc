@@ -1,0 +1,47 @@
+<a class="about" href="https://drive.google.com/file/d/1rMo5AGOTSr0EEq7U9627BYlbmJrs6Zi4/view?usp=sharing" target="_blank">Návod na použitie</a>
+
+<div *ngIf="isLoading" class="preloader-wrapper big active container">
+  <div class="spinner-layer spinner-blue-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+      <div class="circle"></div>
+    </div><div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>   
+
+<div *ngIf="!isLoading">
+  <h4>Rastové krivky - Fenton 2013</h4>
+
+  <div class="center">
+    <button [ngClass]="{'turnRed': !forGirls}" class="btn girls" (click)="switchGirls()">Pre dievčatá</button>
+    <button [ngClass]="{'turnRed': !forBoys}" class="btn boys" (click)="switchBoys()">Pre chlapcov</button>
+  </div>
+
+  <div *ngFor="let item of graphs | keyvalue">
+    <div *ngIf="(forBoys && item.key.name.includes('chlapcov')) || (forGirls && item.key.name.includes('dievčatá'))">
+      <div echarts [options]="item.value" theme="macarons" class="demo-chart"></div>
+    
+      <div class="container">
+          <p>{{item.key.name}}</p>
+          <label>Gestačný týždeň</label>
+          <input #boxGestWeek type="number" placeholder="Enter value...">
+
+          <label>{{item.key.fields[0]}}</label>
+          <input #boxInputValue type="number" placeholder="Enter value...">
+
+          <button class="btn waves-effect waves-light" (click)="evaluation(item.key.name,boxGestWeek.value,boxInputValue.value,boxResult)">vypočítať</button>
+          <p #boxResult class="resultParagraph" id={{item.key.name}}>Zadajte údaje dieťaťa</p>
+      </div> 
+    </div>
+
+    <div class="divider"></div>
+  </div>
+
+  <div *ngIf="sources != null" class="sourcesBox">
+    <p class="boldText">Zdroje:</p>
+    <a *ngFor="let item of sources" href={{item}} target="_blank">{{item}}<br></a>
+  </div>
+</div>

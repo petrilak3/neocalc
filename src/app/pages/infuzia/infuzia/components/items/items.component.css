@@ -1,0 +1,104 @@
+.preloader-wrapper {
+    margin-bottom: 3% !important;
+    display: block !important;
+}
+
+.collapsible-body {
+    background-color: white;
+}
+
+h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; padding-top: 0.5em;text-transform: uppercase;
+}
+
+.collapsible p {
+    font-size: 14px;
+}
+
+.input-field {
+    margin-top:2em;
+}
+
+.collapsible {
+    margin-bottom: 0;
+    padding-bottom: 1em;
+}
+
+.autoFillButton {
+    margin-bottom: 0.4em;
+}
+
+.notesButton {
+    float:right;
+    margin-left:1em;
+}
+
+.moreInfoButton {
+    float:right;
+}
+
+.addToPrintButton {
+    float:right;
+}
+
+.buttonADC {
+    margin-bottom: 0.4em;
+    float: right;
+    margin-right: 1em;
+}
+
+.resultParagraph {
+    font-weight: bold;
+    padding:5px;
+    border: 1px green solid;
+}
+
+.btnAddToSaved {
+    width: 48%;
+    margin: 1%;
+    float:left;
+} 
+
+.collapsible-body {
+    padding-bottom: 12em !important;
+}
+
+.panels {
+    margin-top:-10em;
+    position:fixed;
+    width:70%;
+}
+
+@media only screen and (max-width: 800px) {
+    .panelButtons {
+        float:left;
+    }
+
+    .autoFillButton {
+        width:100%;
+    }
+
+    .notesButton {
+        width:100%;
+        float:left;
+        margin-left:0 !important;
+        margin-bottom: 0.4em;
+    }
+
+    .moreInfoButton {
+        width:100%;
+        float:right;
+        margin-bottom: 0.4em; 
+    }
+
+    .buttonADC {
+        width:100%;
+        margin-right:0 !important;
+    }
+    .btnAddToSaved {
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 0.5em;
+    }
+}

@@ -1,0 +1,67 @@
+<div class="row">
+
+    <h4>Červený kód</h4>
+
+    <h5>Intubácia</h5>
+
+    <table class="highlight centered kanyleTable">
+        <thead>
+            <tr>
+                <th>Váha [g]</th>
+                <th>Hĺbka zavedenia kanyly - nazotracheálne [cm]</th>
+                <th>Hĺbka zavedenia kanyly - orotracheálne [cm]</th>
+                <th>Hrúbka kanyly [mm]</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="tableRowHighlight" *ngFor="let item of table">
+                <td>{{item.weight}}</td>
+                <td>{{item.nazo}}</td>
+                <td>{{item.oro}}</td>
+                <td>{{item.kanyle}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="container center">
+        <label class="kanyleTableLabel">Hmotnosť [kg]</label>
+        <input class="kanyleTableInput" #box type="number" (keyup)="calculateIntub(box.value,boxResult)">
+        <p #boxResult class="kanyleTableParagraph">Zadajte údaje</p>
+    </div>
+
+    <h5>Lieky</h5>
+
+    <table class="highlight centered kanyleTable">
+        <thead>
+            <tr>
+                <th>Názov lieku</th>
+                <th>Dávka [na kg]</th>
+                <th>Výsledná dávka</th>
+                <th>Výsledná dávka [ml]</th>
+            </tr>
+        </thead>
+
+        <tbody> 
+            <tr class="tableRowHighlight" *ngFor="let item of tableDrugs">
+                <td [innerHTML]=item.name></td>
+                <td>{{item.davkaFrom}} <span *ngIf="item.davkaTo != null">-</span> {{item.davkaTo}} {{item.davkaValue}}</td>
+                <td class="red-text">{{item.resultMg}}</td>
+                <td class="green-text">{{item.resultMl}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="container center">
+        <label class="kanyleTableLabel">Hmotnosť [kg]</label>
+        <input class="kanyleTableInput" #boxSecond type="number" (keyup)="calculateDrugs(boxSecond.value)">
+    </div>
+
+
+    <div class="sourcesBox">
+        <p class="sourcesText">Zdroje:</p>
+        <a>Genzel-Boroviczény, o., Roos,R. et al., Checkliste Neonatologie,6. Vyd. Stuttgart: Georg Thieme Verlag, 2019, s.511. ISBN:978-3-13-242555-2</a><br>
+        <a>Shann, F., DRUG DOSES, 17. Vyd., Mt. Pleasant:  JR MEDICAL BOOKS, 2017, s. 118. ISBN 978-0-6480053-0-8</a>
+    </div>
+  
+</div>

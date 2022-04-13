@@ -1,0 +1,45 @@
+<div *ngIf="isLoading" class="preloader-wrapper big active container">
+  <div class="spinner-layer spinner-blue-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+      <div class="circle"></div>
+    </div><div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+  </div> 
+</div> 
+
+<h4 *ngIf="!isLoading">Výpočty</h4>
+
+<div *ngIf="!isLoading" class="input-field container">
+  <input #boxSearch id="search" type="search" (keyup)="searchValue(boxSearch.value)" placeholder="               Zadajte hľadaný výraz...">
+  <label for="search"><i class="material-icons">search</i></label>
+</div>
+
+<div class="panels">
+  <app-informations *ngIf="moreInfoItem != null" [item]="moreInfoItem" (newItemEvent)="closeItem($event)"></app-informations>
+</div>
+
+<ul class="collapsible popout" watch>
+  <li *ngFor="let item of allItems">
+    <div class="collapsible-header" *ngIf="item.name.toLowerCase().includes(search)">
+      {{item.name}} 
+    </div>
+    <div class="collapsible-body" *ngIf="item.name.toLowerCase().includes(search)">
+      <div class="panelButtons">
+        <button class="btn moreInfoButton" (click)="openItem(item)">Viac informácii</button>
+      </div> 
+
+      <div> 
+          <input-field *ngFor="let field of item.parameters">
+            <label>{{field}}</label>
+            <input #box (keyup)="evaluation(item,field.concat(item.id),boxInfoResult,box)" placeholder="Zadajte hodnotu..." type="number" id={{field.concat(item.id)}}>
+          </input-field> 
+          <p #boxInfoResult class="resultParagraph">Zadajte údaje</p>  
+      </div>
+
+    </div>
+  </li>
+</ul>
+ 

@@ -1,0 +1,37 @@
+h5 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 4.5em;
+    width:70%;
+    margin-bottom:1em;
+}
+
+.row {
+    margin-bottom:0 !important;
+}
+
+.tables {
+    margin-left: 10%;
+    width: 80%;
+    overflow: scroll;
+    margin-bottom:3em;
+}
+
+.sourcesBox {
+    padding-left: 3em;
+    padding-bottom: 2em;
+    word-break: break-all;
+}
+
+.boldText {
+    font-weight: bold;width:70%;
+}
+
+@media only screen and (max-width: 800px) {
+    h4 {
+        padding-left: 0.5em;
+    }
+    h5 {
+        width:90%;
+        margin-left: 1em;
+    }
+}

@@ -1,0 +1,25 @@
+.card-panel .left-align {
+    padding-bottom: 1em;
+}
+
+.phoneWarning {
+    display:none;
+}
+
+h4 {
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 800px) {
+    .phoneWarning {
+        display: block;
+    }
+}

@@ -1,0 +1,48 @@
+.preloader-wrapper {
+    margin-bottom: 3% !important;
+    display: block !important;
+}
+
+h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 2em;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 4.5em;
+    width:70%;
+    margin-bottom:1em;
+}
+
+.resultParagraph {
+    font-size: 18px; 
+    text-align: center;
+    padding:5px;border: 1px green solid;
+    font-weight: bold;
+}
+
+.about {
+    text-transform: uppercase;
+    float:right;
+    font-weight: bold;
+    margin-right:2em;
+}
+
+.infoBox {
+    font-weight: bold;font-size: 18px;
+}
+
+@media only screen and (max-width: 800px) {
+    h4 {
+        padding-left: 0.5em;
+    }
+    h5 {
+        width:90%;
+        margin-left: 1em;
+    }
+}

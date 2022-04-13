@@ -1,0 +1,55 @@
+<div class="row">
+    <h5>Indikácie na intenzívnu fototerapiu u novorodencov narodených < 35. týždni tehotenstva (Maisels 2012)</h5>
+  
+    <table class="highlight centered" class="tables">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Fototerapia</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Gestačný vek [týždne]</th>
+          <th></th>
+          <th>Hodnota sérového bilirubínu [μmol/l]</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of resultsOnDaysFoto">
+          <td>{{item.info}}</td>
+          <td></td>
+          <td>{{item.bili}}</td>
+        </tr>
+      </tbody>
+    </table>
+ 
+    <h5>Indikácie na výmennú transfúziu u novorodencov narodených < 35. týždni tehotenstva (Maisels 2012)</h5>
+  
+    <table class="highlight centered" class="tables">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Exsangvinačná transfúzia</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th>Gestačný vek [týždne]</th>
+          <th></th>
+          <th>Hodnota sérového bilirubínu [μmol/l]</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of resultsOnDaysExsang">
+          <td>{{item.info}}</td>
+          <td></td>
+          <td>{{item.bili}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="sourcesBox">
+      <p class="boldText">Zdroje:</p>
+      <a href="http://slovenskaneonatologia.sk/wp-content/uploads/2017/04/Ovori%C5%A5-lie%C4%8Dbu-novorodencov-s-nekonjugovanou-hyperbilirubin%C3%A9miiou.pdf" target="_blank">http://slovenskaneonatologia.sk/wp-content/uploads/2017/04/Ovori%C5%A5-lie%C4%8Dbu-novorodencov-s-nekonjugovanou-hyperbilirubin%C3%A9miiou.pdf</a>
+    </div>
+  
+</div>

@@ -1,0 +1,138 @@
+<div id="all" class="row">
+      <ul id="slide-out" class="side-nav">
+          <li>
+            <div class="user-view blue darken-4 center">
+              <button *ngIf="user != null" class="btn waves-effect waves-light hoverable red lighten-2" (click)="logout()">Odhlásiť sa</button>
+              
+              <a *ngIf="user != null"><i class="large material-icons white-text personBlock">person</i></a>
+              
+              <a *ngIf="user != null"><span class="white-text email">{{user.email}}</span></a>
+
+              <a *ngIf="user != null"><span class="white-text">{{user.displayName}}</span></a>
+
+              <button *ngIf="user == null" class="btn waves-effect waves-light green lighten-2" [routerLink]="['/login']">Prihlásiť sa</button>
+              <p *ngIf="user == null" class="white-text noAccountBlock">Nemáte ešte účet?  <a [routerLink]="['/register']">Zaregistrujte sa!</a></p>
+
+            </div>
+        </li> 
+          <div class="divider upperDivider"></div>
+          <li class="userTabsRedCode"><a class="waves-effect white-text" [routerLink]="['resuscitacie']" routerLinkActive="router-link-active"><i class="small material-icons red-text">enhanced_encryption</i>Resuscitácia</a></li>
+          <li class="userTabs" *ngIf="user != null"><a href="#modal2" class="waves-effect modal-trigger white-text"><i class="small material-icons white-text">settings</i>Nastavenia</a></li>
+          <li class="userTabs" *ngIf="user != null"><a href="#modal1" class="waves-effect modal-trigger white-text" (click)="loadNotes()"><i class="small material-icons white-text">note</i>Poznámky</a></li>
+          <li class="userTabs" *ngIf="user != null"><a class="waves-effect white-text" [routerLink]="['ulozene']" routerLinkActive="router-link-active"><i class="small material-icons white-text">save</i>Uložené výpočty</a></li>
+          <li><a class="waves-effect" [routerLink]="['']" routerLinkActive="router-link-active"><i class="small material-icons">dashboard</i>Úvod</a></li>
+          <li><a class="waves-effect" [routerLink]="['lieky']" routerLinkActive="router-link-active" ><i class="small material-icons">local_pharmacy</i>Lieky</a></li>
+          <li><a class="waves-effect" [routerLink]="['infuzie']" routerLinkActive="router-link-active"><i class="small material-icons">local_hospital</i>Infúzie</a></li>
+          <li><a class="waves-effect" [routerLink]="['vypocty']" routerLinkActive="router-link-active" ><i class="small material-icons">view_list</i>Nástroje</a></li>
+          <li><a class="waves-effect" [routerLink]="['hyper']" routerLinkActive="router-link-active" ><i class="small material-icons">receipt</i>Hyperbilirubinémia</a></li>
+          <li><a class="waves-effect" [routerLink]="['krivky']" routerLinkActive="router-link-active" ><i class="small material-icons">assessment</i>Rastové krivky</a></li>
+          <li><a class="waves-effect" [routerLink]="['kontakty']" routerLinkActive="router-link-active" ><i class="small material-icons">contacts</i>Pericentrá</a></li>
+          <div class="divider"></div>
+          <li><a class="waves-effect" [routerLink]="['mkch']" routerLinkActive="router-link-active" ><i class="small material-icons">reorder</i>MKCH-10 (P,Q)</a></li>
+          <li><a class="waves-effect" [routerLink]="['odporucania']" routerLinkActive="router-link-active" ><i class="small material-icons">reorder</i>Odporúčania</a></li>
+          <li><a class="waves-effect" [routerLink]="['resuscitacie']" routerLinkActive="router-link-active" ><i class="small material-icons">reorder</i>Resuscitácia</a></li>
+          <div class="divider"></div> 
+          <li>
+            <span style="font-weight:bold;margin:0.25em;margin-left: 1.5em;">Užitočné odkazy:</span>
+            <img class="externalImage" *ngFor="let item of externalLinks | keyvalue" alt="logo" src={{item.value}} (click)="openWindow(item.key)">
+          </li>
+      </ul> 
+
+      <div class="col s1">
+        <div class="container center menuBlock">
+          <a href="#" data-activates="slide-out" class="button-collapse"><i class="large material-icons white-text menuIcon">menu</i></a>
+          <span class="white-text" style="font-weight:bold;">MENU</span>
+        </div>
+      </div>
+      <div class="col s7 offset-s3">
+        <img [routerLink]="['']" routerLinkActive="router-link-active" class="neologo" src="https://firebasestorage.googleapis.com/v0/b/project-try-novu.appspot.com/o/logoNew2.jpg?alt=media&token=c9ba0502-6669-466c-b1bc-6851ea8dd116" alt="logo">
+      </div>
+      <div class="col s1">
+        <div class="container center menuBlockResus"><a [routerLink]="['resuscitacie']" routerLinkActive="router-link-active"><img src="https://firebasestorage.googleapis.com/v0/b/project-try-novu.appspot.com/o/REDCODE.png?alt=media&token=8d79dae9-03a3-4f96-b917-85f996fe4b0d" alt="res"></a></div>
+      </div>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal bottom-sheet blue darken-4">
+        <div class="modal-content">
+          <h3>Poznámky:</h3>
+
+          <div class="input-field container notesSearch">
+            <input #boxSearch id="search" type="search" (keyup)="searchValue(boxSearch.value)" placeholder="               Zadajte hľadaný výraz...">
+            <label for="search"><i class="material-icons">search</i></label>
+          </div>
+          
+          <div *ngFor="let item of items|async">
+            <div *ngIf="item.header.toLowerCase().includes(searchNotes) && item.forItemId == null" class="card-panel blue lighten-5"> 
+                <button class="btn red waves-effect waves-light deleteNoteButton" (click)="deleteNote(item)">Vymazať</button>
+                <h5>{{item.header}}</h5>
+                <div class="input-field"> 
+                  <button class="btn notesBTN" (click)="abcBold();dataChangedAlert(boxNotesInformation)">b</button>
+                  <button class="btn notesBTN" (click)="abcItalic();dataChangedAlert(boxNotesInformation)">i</button>
+                  <button class="btn notesBTN" (click)="abcUnderline();dataChangedAlert(boxNotesInformation)">u</button>
+                  <button class="btn black black-text notesBTN" (click)="abcBlack();dataChangedAlert(boxNotesInformation)">b</button>
+                  <button class="btn red red-text notesBTN" (click)="abcRed();dataChangedAlert(boxNotesInformation)">r</button>
+                  <button class="btn green green-text notesBTNLast" (click)="abcGreen();dataChangedAlert(boxNotesInformation)">g</button>
+                  <div class="boxNotesIn" #boxNotesNewText (keyup)="dataChangedAlert(boxNotesInformation)" contenteditable="true" [innerHTML]=item.text></div>
+                  <p #boxNotesInformation class="warningParagraph"></p>
+                </div>
+                <button class="btn black-text waves-effect waves-light" (click)="updateNote(item,boxNotesNewText.innerHTML)">Upraviť</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card-panel blue lighten-5">
+          <h5>Pridať poznámku:</h5>
+          <label>Nadpis</label>
+          <textarea #boxHeaderNote placeholder="Enter value..." type="text"></textarea>
+          <button class="btn notesBTN" (click)="abcBold()">b</button>
+          <button class="btn notesBTN" (click)="abcItalic()">i</button>
+          <button class="btn notesBTN" (click)="abcUnderline()">u</button>
+          <button class="btn black black-text notesBTN" (click)="abcBlack()">b</button>
+          <button class="btn red red-text notesBTN" (click)="abcRed()">r</button>
+          <button class="btn green green-text notesBTNLast" (click)="abcGreen()">g</button>
+          <div class="boxNotesOut" #boxNotesNewText contenteditable="true"></div>
+          <a class="waves-effect waves-light btn" (click)="addNote(boxHeaderNote,boxNotesNewText)">Pridať</a>
+        </div>
+        
+      </div>
+
+      <!--Setting user-->
+      <div id="modal2" class="modal bottom-sheet blue darken-4">
+        <div class="modal-content">
+          <h3>Nastavenia:</h3>
+          <div class="card-panel blue lighten-5">
+            <h5>Zmena použivateľského mena:</h5>
+            <label>Meno a priezvisko</label>
+            <input #boxUserName type="text" placeholder="Zadajte nové meno a priezvisko">
+            <p #boxInfoUpdateName></p>
+            <button class="btn" (click)="updateUserName(boxUserName,boxInfoUpdateName)">Aktualizovať meno</button>
+          </div>
+          <div class="card-panel blue lighten-5">
+            <h5>Zmena použivateľského hesla:</h5>
+            <label>Nové heslo</label>
+            <input #boxPasswordFirst type="password" placeholder="Zadajte nové heslo">
+            <label>Zopakujte nové heslo</label>
+            <input #boxPasswordSecond type="password" placeholder="Zadajte znova nové heslo">
+            <p #boxInfoPassword></p>
+            <button class="btn" (click)="updateUserPassword(boxPasswordFirst,boxPasswordSecond,boxInfoPassword)">Aktualizovať heslo</button> 
+          </div>
+        </div> 
+      </div>
+
+      <div id="modal3" class="modal bottom-sheet blue darken-4">
+        <div class="modal-content">
+          <h3>Kalkulačka:</h3>
+          <app-calculator></app-calculator>
+        </div> 
+      </div>
+
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large blue darken-4">
+          <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+          <li><a href="#modal3" class="btn-floating blue darken-1 modal-trigger"><i class="small material-icons white-text">insert_chart</i></a></li>
+          <li *ngIf="user != null"><a href="#modal1" class="btn-floating blue darken-1 modal-trigger" (click)="loadNotes()"><i class="small material-icons white-text">note</i></a></li>
+        </ul>
+      </div>
+</div>

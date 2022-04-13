@@ -1,0 +1,32 @@
+.patientCSS:hover {
+    background: rgb(222, 251, 255) !important;
+} 
+
+.row {
+    margin-bottom: 0 !important;
+}
+
+h4 {
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+}
+h5 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+    margin-left: 2em;
+}
+
+.createPatientBox {
+    margin-bottom: 3em;
+}
+
+.patientsBox {
+    margin-bottom: 2em;
+}
+
+.patientsBox {
+    overflow: scroll;
+}

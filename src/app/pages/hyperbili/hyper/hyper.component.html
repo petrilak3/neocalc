@@ -1,0 +1,47 @@
+<div class="row">
+
+    <a class="about" href="https://drive.google.com/file/d/165pymt67W74c2QyYaGUgzO3SVWKUbu6D/view?usp=sharing" target="_blank">Návod na použitie</a>
+
+    <h4>Hyperbilirubinémia</h4>
+  
+    <h5>Prepočet hodnoty bilirubínu (mg/dl ↔ umol/l)</h5>
+    <div class="container">
+        <label>umol/l</label>
+        <input #boxUmol (keyup)="calculateMgdl(boxUmol,boxMddl)" placeholder="Zadajte hodnotu..." type="number">
+        <label>mg/dl</label>
+        <input #boxMddl (keyup)="calculateUmol(boxUmol,boxMddl)" placeholder="Zadajte hodnotu..." type="number">
+    </div>
+</div>  
+
+<app-normograms [graphs]="normoGraphs" [listValues]="normoListValues"></app-normograms>
+    
+<div *ngFor="let item of graphs | keyvalue">
+    <h5>{{item.key.name}}</h5>
+    <div echarts [options]="item.value" theme="macarons" class="demo-chart"></div>
+    
+    <div class="container">
+      <p>{{item.key.name}}</p>
+
+      <label>Dátum narodenia dieťaťa [DD.MM.RRRR]</label>
+      <input #boxDate type="text" placeholder="Zadajte hodnotu...">
+      <label>Čas narodenia dieťaťa [HH:MM]</label>
+      <input #boxTime type="text" placeholder="Zadajte hodnotu...">
+      <label>Dátum odberu [DD.MM.RRRR]</label>
+      <input #boxDateOdber type="text" placeholder="Zadajte hodnotu...">
+      <label>Čas odberu [HH:MM]</label>
+      <input #boxTimeOdber type="text" placeholder="Zadajte hodnotu...">
+
+      <button class="btn waves-effect waves-light" (click)="evaluation(item.key,boxDate.value,boxTime.value,boxDateOdber.value,boxTimeOdber.value,boxResult)">vypočítať</button>
+      <p #boxResult class="resultParagraph">Zadajte údaje dieťaťa</p>
+
+      <p class="infoBox">“Rizikové faktory: asfyxia, RDS, acidóza, termálna instabilita, hemolytická choroba, sepsa, letargia, albumín < 3g/dl, G6PD deficiencia)”
+      </p>
+
+    </div>
+
+    <div class="divider"></div>
+</div>
+
+<app-hyper-indications></app-hyper-indications>
+
+  

@@ -1,0 +1,48 @@
+<div class="row">
+
+    <h4>MKCH-10</h4>
+
+    <div class="center">
+      <button [ngClass]="{'turnRed': !forP}" class="btn P" (click)="switchP()">MKCH-10 (P00-P96)</button>
+      <button [ngClass]="{'turnRed': !forQ}" class="btn Q" (click)="switchQ()">MKCH-10 (Q00-Q96)</button>
+    </div>
+
+    <div class="input-field container">
+        <input #box id="search" type="search" (keyup)="searchValue(box.value)" placeholder="               Zadajte hľadaný výraz...">
+        <label for="search"><i class="material-icons">search</i></label>
+    </div>
+
+    <div class="col s10 offset-s1">
+
+        <div *ngFor="let item of allItems">
+            <div *ngFor="let field of item.text | keyvalue">
+              <div *ngIf="(forP && field.key.startsWith('P')) || (forQ && field.key.startsWith('Q'))">
+                <div class="card-panel white" *ngIf="field.key.toLowerCase().includes(search) || field.value.toLowerCase().includes(search)">
+                    <p class="boldText">{{field.key}}</p>
+                    <p class="italicText" [innerHTML]=field.value></p> 
+                </div>
+              </div> 
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="isLoading" class="preloader-wrapper big active container">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div><div class="gap-patch">
+          <div class="circle"></div>
+        </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div> 
+    </div>
+
+    <div class="boxSources">
+      <p class="sourcesText">Zdroje:</p>
+      <a href="http://data.nczisk.sk/old/infozz/mkch/mkch-10/cast1600.pdf" target="_blank">http://data.nczisk.sk/old/infozz/mkch/mkch-10/cast1600.pdf </a><br>
+      <a href="https://mediately.co/sk/icd/P00-P96/ur%C4%8Dit%C3%A9-choroby-vzniknut%C3%A9-v-perinat%C3%A1lnom-obdob%C3%AD" target="_blank">https://mediately.co/sk/icd/P00-P96/ur%C4%8Dit%C3%A9-choroby-vzniknut%C3%A9-v-perinat%C3%A1lnom-obdob%C3%AD</a><br>
+      <a href="https://mediately.co/sk/icd/Q00-Q99/vroden%C3%A9-chyby-deformity-a-chromoz%C3%B3mov%C3%A9-anom%C3%A1lie" target="_blank">https://mediately.co/sk/icd/Q00-Q99/vroden%C3%A9-chyby-deformity-a-chromoz%C3%B3mov%C3%A9-anom%C3%A1lie</a>
+  </div>
+</div>

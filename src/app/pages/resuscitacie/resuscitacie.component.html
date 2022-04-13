@@ -1,0 +1,15 @@
+<a class="about" href="https://drive.google.com/file/d/18j8iFCYQUBbFIFmisQwBAkShX8ihRsIq/view?usp=sharing" target="_blank">Návod na použitie</a>
+
+
+<div class="container center">
+    <a class="btn red americanText" href="https://pediatrics.aappublications.org/content/147/Supplement_1/e2020038505E.long" target="_blank">Neonatal Resuscitation 2020 American Heart Association Guidelines</a>
+</div>
+
+<div class="container center">
+    <a class="btn red buttonNRP" href="http://slovenskaneonatologia.sk/resuscitacia/" target="_blank">Národný resuscitačný program</a>
+    <button [ngClass]="{'turnRed': !showAlgorithms}" class="btn buttonOthers" (click)="showAlgo()">Algoritmy resuscitácie</button>
+    <button [ngClass]="{'turnRed': !showRedCode}" class="btn buttonOthers" (click)="showRed()">Resuscitácia - „červený kód“</button>
+</div>
+
+<app-algorithms *ngIf="showAlgorithms"></app-algorithms>
+<app-redcode *ngIf="showRedCode"></app-redcode> 

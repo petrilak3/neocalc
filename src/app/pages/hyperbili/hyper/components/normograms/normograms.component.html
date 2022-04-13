@@ -1,0 +1,20 @@
+<div *ngFor="let item of graphs | keyvalue">
+    <h5>{{item.key.name}}</h5>
+    <div echarts [options]="item.value" theme="macarons" class="demo-chart"></div>
+    
+    <div class="container">
+      <p>{{item.key.name}}</p>
+
+      <label>Dátum narodenia dieťaťa [DD.MM.RRRR]</label>
+      <input #boxDate type="text" placeholder="Zadajte hodnotu...">
+      <label>Čas narodenia dieťaťa [HH:MM]</label>
+      <input #boxTime type="text" placeholder="Zadajte hodnotu...">
+      <label>Hodnota bilirubínu stanoveného pomocou TcB [umol/l]</label>
+      <input #boxValue type="number" placeholder="Zadajte hodnotu...">
+
+      <button class="btn waves-effect waves-light" (click)="evaluation(item.key,boxDate.value,boxTime.value,boxValue.value,boxResult)">vypočítať</button>
+      <p #boxResult class="resultParagraph">Zadajte údaje dieťaťa</p>
+    </div>
+
+    <div class="divider"></div>
+</div>

@@ -1,0 +1,46 @@
+<div *ngIf="userIsLoggedIn" class="card-panel blue lighten-5 mainPanel">
+
+    <button class="btn red btnClose" (click)="closeNotes()">X</button>
+    <h5>{{item.name}}</h5> 
+
+    <div *ngFor="let note of notes|async"> 
+        <div *ngIf="note.forItemId == item.id && note.forGroup == group" class="card-panel white"> 
+            <button class="btn red waves-effect waves-light btnClose" (click)="deleteNote(note)">Vymazať</button>
+            <h5>{{note.header}}</h5>
+            <div class="input-field">
+                  <button class="btn btnTextChange" (click)="abcBold();dataChangedAlert(boxNotesInformation)">b</button>
+                  <button class="btn btnTextChange" (click)="abcItalic();dataChangedAlert(boxNotesInformation)">i</button>
+                  <button class="btn btnTextChange" (click)="abcUnderline();dataChangedAlert(boxNotesInformation)">u</button>
+                  <button class="btn black black-text btnTextChange" (click)="abcBlack();dataChangedAlert(boxNotesInformation)">b</button>
+                  <button class="btn red red-text btnTextChange" (click)="abcRed();dataChangedAlert(boxNotesInformation)">r</button>
+                  <button class="btn green green-text btnTextChangeLast" (click)="abcGreen();dataChangedAlert(boxNotesInformation)">g</button>
+              <div class="noteText" #boxNotesNewText (keyup)="dataChangedAlert(boxNotesInformation)" contenteditable="true" [innerHTML]=note.text></div>
+              <p #boxNotesInformation id={{note.text.concat(note.header)}} class="red-text"></p>
+            </div>
+            <button class="btn black-text waves-effect waves-light" (click)="updateNote(note,boxNotesNewText.innerHTML)">Upraviť</button>
+        </div>
+    </div> 
+
+      <div *ngIf="showAddNote" class="card-panel white">
+        <h5>Pridať poznámku:</h5>
+        <label>Nadpis</label> 
+        <input placeholder="Zadajte text..." type="text" #head>
+          <button class="btn btnTextChange" (click)="abcBold()">b</button>
+          <button class="btn btnTextChange" (click)="abcItalic()">i</button>
+          <button class="btn btnTextChange" (click)="abcUnderline()">u</button>
+          <button class="btn black black-text btnTextChange" (click)="abcBlack()">b</button>
+          <button class="btn red red-text btnTextChange" (click)="abcRed()">r</button>
+          <button class="btn green green-text btnTextChangeLast" (click)="abcGreen()">g</button>
+          <div class="noteTextAdd" #boxNotesNewText contenteditable="true"></div>
+        <a class="waves-effect waves-light btn" (click)="addNote(head.value,boxNotesNewText.innerHTML)">Pridať</a>
+        <button class="btn red btnClose" (click)="showAddNote=false">Zrušiť</button>
+      </div>
+
+      <button class="btn" *ngIf="!showAddNote" (click)="showAddNote=true">Pridať poznámku</button>
+</div>
+
+<div *ngIf="!userIsLoggedIn" class="card-panel blue lighten-5 logInfoBox">
+  <button class="btn red btnClose" (click)="closeNotes()">X</button>
+  <h5>Prosím prihláste sa...</h5> 
+</div>
+ 

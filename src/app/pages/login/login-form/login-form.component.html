@@ -1,0 +1,18 @@
+
+    <form class="form" [formGroup]="loginForm">
+        <h2>Prihlásenie</h2>
+        <div class="input-field">
+            <label >E-mail</label>
+            <input type="text" formControlName="email" class="validate" required> 
+        </div>
+        <div class="input-field">
+            <label>Heslo</label>    
+            <input type="password" formControlName="password" class="validate" required>
+        </div>
+        <div class="form-footer">
+            <button class="btn waves-effect waves-light" (click)="login()">Prihlásiť sa</button>
+            <a [routerLink]="['/register']" routerLinkActive="router-link-active" >Zaregistrovať sa</a>
+        </div>
+        <button class="waves-effect waves-light btn white blue-text" style="width:inherit;" (click)="resetPassword()">Resetovať heslo</button>
+        <p class="message-box">{{message}}</p>
+    </form> 

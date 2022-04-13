@@ -1,0 +1,31 @@
+<div class="row"> 
+    <button class="btn red closeButton" (click)="close()">X</button>
+
+    <div class="col s10 offset-s1">
+            <div *ngFor="let itemUp of vypocet; index as i">
+                <div *ngFor="let item of itemUp | keyvalue">
+                    <div class="card-panel white">
+                        <h5>{{item.key.name}}</h5> 
+                        <div #boxData hidden=true>
+                            <div *ngFor="let field of item.value | keyvalue">
+                                <div *ngIf="field.key.endsWith(item.key.id)">
+                                    <p>{{field.key.replace(item.key.id.toString(),'')}} -> <span>{{field.value}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <p #boxResult class="boldText"></p>
+            
+                        <button #boxBtnShow class="btn resultBtn" (click)="showData(boxData,boxBtnShow)">zobraziť výpočet</button>
+                        <button #boxBtnRes class="btn" (click)="calculate(item.key,item.value,boxResult,boxBtnRes)">zobraziť výsledok</button>
+                        <button #btnRemove class="btn red closeBtn" (click)="removeItem(btnRemove,i)">odstrániť</button>
+                    </div>
+                </div> 
+            </div>
+    </div>
+
+    <div *ngIf="this.vypocet.length == 0">
+        <div class="card-panel white center">
+            <h5>Nie sú dostupné žiadne položky v zozname výpočtov...</h5>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.button-dv {
+    float:right;
+}
+
+.moreInformations {
+    text-transform: uppercase;
+    float:right;
+    font-weight: bold;
+}

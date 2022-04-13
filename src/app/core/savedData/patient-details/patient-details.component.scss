@@ -1,0 +1,40 @@
+span {
+    font-weight: bold;
+    color:blue;
+}
+
+.row {
+    margin-bottom: 0 !important;
+}
+
+.boldText {
+    font-weight: bold;
+}
+
+.closeBtn {
+    float:right;
+}
+
+.resultBtn {
+    margin-right: 1em !important;
+}
+
+.closeButton {
+    float: right;
+    margin-right: 1em;
+}
+
+@media only screen and (max-width: 800px) {
+    .card-panel {
+        float:left;
+    }
+
+    .btn {
+        width:100%;
+        margin-bottom: 0.5em;
+    }
+
+    .closeButton {
+        width:auto;
+    }
+}

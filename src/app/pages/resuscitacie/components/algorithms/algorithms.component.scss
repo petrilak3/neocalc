@@ -1,0 +1,33 @@
+h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+    padding-left: 2em;
+    margin-bottom: 1em !important;
+    text-transform: uppercase;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.imgAlgo {
+    width:50%;
+    margin-left:20%;
+}
+
+.sourcesBox {
+    padding-left: 3em;
+    padding-bottom: 2em;
+    word-break:break-all;
+    padding-right:1em;
+}
+
+.sourcesText {
+    font-weight: bold;
+    width:70%;
+}
+
+@media only screen and (max-width: 800px) {
+    h4 {padding-left:1em;}
+}

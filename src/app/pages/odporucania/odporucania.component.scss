@@ -1,0 +1,25 @@
+ .row {
+    margin-bottom: 0;
+    padding-bottom: 1em;
+ }
+
+ h4 {
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0 !important; 
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 2em;
+ }
+
+ .insideText {
+    font-size: 1.1em;
+ }
+
+ .boldText {
+    font-weight: bold;
+ }
+
+ @media only screen and (max-width: 800px) {
+    h4 {padding-left: 0.75em;}
+ }
